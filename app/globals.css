@@ -55,8 +55,8 @@ body {
     opacity: 0.3;
   }
   60% {
-    transform: translateX(0em) translateY(0) rotateX(44deg);
-    opacity: 0.6;
+    transform: translateX(0em) translateY(0) rotateX(40deg);
+    opacity: 0.4;
   }
   100% {
     transform: translateX(0) translateY(0) rotateX(0deg);
