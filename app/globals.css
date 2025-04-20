@@ -51,7 +51,11 @@ body {
     opacity: 0;
   }
   10% {
-    transform: translateX(0.5em) translateY(1.5em) rotateX(70deg);
+    transform: translateX(0.5em) translateY(1.5em) rotateX(88deg);
+    opacity: 0.3;
+  }
+  60% {
+    transform: translateX(0em) translateY(0) rotateX(44deg);
     opacity: 0.6;
   }
   100% {
