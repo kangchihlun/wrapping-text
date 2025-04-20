@@ -2,37 +2,57 @@
 import { useEffect, useRef } from 'react';
 
 export default function Hero() {
-    const textRef = useRef<HTMLParagraphElement>(null);
-
+    const textRefUp = useRef<HTMLParagraphElement>(null);
+    const textRefDown = useRef<HTMLParagraphElement>(null);
     useEffect(() => {
-        const element = textRef.current;
-        if (!element) return;
+        const elementUp = textRefUp.current;
+        const elementDown = textRefDown.current;
+        if (!elementUp || !elementDown) return;
 
-        const text = element.innerText;
-        const textArray = text.split("");
-        
+        const textUp = elementUp.innerText;
+        const textArrayUp = textUp.split("");
+        const textDown = elementDown.innerText;
+        const textArrayDown = textDown.split("");
         // Clear the original text
-        element.innerHTML = '';
+        elementUp.innerHTML = '';
+        elementDown.innerHTML = '';
         
+        let upDelay = 0.6;
         // Create and append each letter with animation delay
-        textArray.forEach((letter, index) => {
+        textArrayUp.forEach((letter, index) => {
             const span = document.createElement("span");
             span.className = "letter";
             span.innerHTML = letter === " " ? "&nbsp;" : letter;
-            const delay = `${index * 0.04}s`;
+            const delay = `${index * 0.03}s`;
             span.style.cssText = `
                 animation-delay: ${delay}, ${parseFloat(delay) + 0.01}s;
             `;
-            element.appendChild(span);
+            elementUp.appendChild(span);
+        });
+        
+        textArrayDown.forEach((letter, index) => {
+            const span = document.createElement("span");
+            span.className = "letter";
+            span.innerHTML = letter === " " ? "&nbsp;" : letter;
+            const delay = `${upDelay + index * 0.03}s`;
+            span.style.cssText = `
+                animation-delay: ${delay}, ${parseFloat(delay) + 0.01}s;
+            `;
+            elementDown.appendChild(span);
         });
     }, []); // Run once on mount
 
     return (
         <div className="relative min-h-[500px] w-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/g-pic.png)' }}>
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                <p ref={textRef} className="hero-text">
-                    Team Taiwan!
-                </p>
+                <div className="flex flex-col items-center justify-center">
+                    <p ref={textRefUp} className="hero-text">
+                        "Team Taiwan!Team Taiwan!
+                    </p>
+                    <p ref={textRefDown} className="hero-text">
+                        Taiwan is a great country!"
+                    </p>
+                </div>
             </div>
         </div>
     );
