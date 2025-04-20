@@ -49,7 +49,7 @@ export default function Hero() {
                     <p ref={textRefUp} className="hero-text">
                         &quot;Team Taiwan!Team Taiwan!
                     </p>
-                    <p ref={textRefDown} className="hero-text pl-[1em]">
+                    <p ref={textRefDown} className="hero-text ml-[-0.5em]">
                         Taiwan is a great country!&quot;
                     </p>
                 </div>
