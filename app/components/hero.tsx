@@ -17,7 +17,7 @@ export default function Hero() {
         elementUp.innerHTML = '';
         elementDown.innerHTML = '';
         
-        let upDelay = 0.6;
+        const upDelay = 0.6;
         // Create and append each letter with animation delay
         textArrayUp.forEach((letter, index) => {
             const span = document.createElement("span");
@@ -47,10 +47,10 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center">
                     <p ref={textRefUp} className="hero-text">
-                        "Team Taiwan!Team Taiwan!
+                        &quot;Team Taiwan!Team Taiwan!
                     </p>
-                    <p ref={textRefDown} className="hero-text">
-                        Taiwan is a great country!"
+                    <p ref={textRefDown} className="hero-text pl-[1em]">
+                        Taiwan is a great country!&quot;
                     </p>
                 </div>
             </div>
