@@ -24,3 +24,34 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.hero-text {
+  text-align: left;
+  font-size: 3.5714285714rem;
+  font-family: Poppins;
+  font: normal normal medium 60px/80px Poppins;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  animation: 
+    fadeInUp 0.9s forwards,
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateX(0.5em) translateY(1.5em) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotateX(0deg);
+    opacity: 1;
+  }
+}
